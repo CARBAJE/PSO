@@ -32,9 +32,10 @@ def comparePsoAlgorithms(test_functions, bounds_map, num_runs=10,
                         num_particles=num_particles,
                         max_iterations=max_iterations,
                         dimensions=dimensions,
-                        num_neighbors=4  # Puedes ajustar esto o pasarlo como parámetro
+                        num_neighbors=2 if 'local' in alg_type else None
                     )
                     run_results.append(result)
+                    print(f"    Run {run+1}/{num_runs} completado: Mejor fitness = {result['best_fitness']:.6e}, Tiempo de ejecución = {result['execution_time']:.2f}s")
                 except Exception as e:
                     print(f"    Error en run {run+1}: {e}")
                     import traceback
@@ -96,16 +97,16 @@ if __name__ == "__main__":
     }
 
     bounds_map = {
-        'Rastrigin': (-5.12, 5.12)
+        'Rastrigin': (-5.12*10, 5.12*10)
     }
 
     # Ejecuta la comparación
     results_df = comparePsoAlgorithms(
         test_functions=test_functions,
         bounds_map=bounds_map,
-        num_runs=5,
-        num_particles=30,
-        max_iterations=100,
+        num_runs=10,
+        num_particles=30*2,
+        max_iterations=int(80*2.5),
         dimensions=2
     )
 

@@ -56,9 +56,5 @@ Puedes modificar los parámetros de PSO (número de partículas, iteraciones, ve
 
 ## Créditos
 
-Desarrollado por [Tu Nombre].
+Desarrollado por José Emiliano Carrillo Barreiro.
 Inspirado en la literatura clásica de PSO y variantes adaptativas.
-
-## Licencia
-
-Este proyecto se distribuye bajo la Licencia MIT.
